@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.1/dist/cdn.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="users.js"></script>
+    <script src="communities.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body class="bg-light " x-data="App">
+    <div class="bg-primary text-white d-flex justify-content-between shadow-sm">
+        <div class="fs-5 mt-1 fw-bold mx-3">notion.</div>
+        <div>
+            <ul class="nav gap-4">
+                <li class="nav-item">
+                    <button class="nav-link text-white small fw-bold" aria-current="page" @click="logOut"><small>Log Out</small></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <main class="p-4">
+        <div class="px-4 mb-4 d-flex justify-content-between align-items-center">
+            <h2 class="m-0">Create Community </h2>
+        </div>
+        <div class="px-4">
+        <div class="form-floating mb-3">
+            <input x-model="newCommunity.name" type="email" class="form-control" id="floatingName"
+                placeholder="name@example.com">
+            <label for="floatingInput">Community name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input x-model="newCommunity.code" type="email" class="form-control text-uppercase" id="floatingName"
+                placeholder="name@example.com">
+            <label for="floatingInput">Community code</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input x-model="newCommunity.amount" type="email" class="form-control" id="floatingName"
+                placeholder="name@example.com">
+            <label for="floatingInput">Membership Price</label>
+        </div>
+        </div>
+        <div x-show="newCommunity.cdError" class="alert alert-danger mt-3" role="alert">
+            User already exists!!!
+        </div>
+        <div x-show="newCommunity.createOk" class="alert alert-success mt-3" role="alert">
+            Registration successfull!!
+        </div>
+        <div class="d-flex justify-content-end px-4">
+        <button @click="newCommunity.createComm()" type="button" class="btn btn-sm px-3 btn-primary mt-3 small fw-bold text-uppercase">Create Community</button>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
