@@ -12,7 +12,7 @@ let communities = [
                 username : "nithu",
                 fund : 700,
                 vouches : [
-                    
+
                 ]
                 
             }
@@ -37,6 +37,12 @@ function restoreCommunities(){
 
 function communityFund(community){
     return community.price * community.members.length;
+}
+
+function hasComms(){
+    return communities.filter(function (community){
+        return community.members.includes(getLogin().username) ;
+    }).length != 0 ;
 }
 
 restoreCommunities();

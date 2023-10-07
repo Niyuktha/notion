@@ -45,6 +45,13 @@
         </div>
         <section class="px-4">
             <div class="accordion" id="accordionExample">
+                <template x-if="!hasComms()">
+                    <div class="p-5 d-flex justify-content-center align-items-center">
+                        <div class="fs-2 text-muted">
+                            You are not a member of any community.
+                        </div>
+                    </div>
+                </template>
                 <template x-for="community in communities">
                     <div x-show="community.members.includes(getLogin().username)" class="accordion-item">
                         <h2 class="accordion-header">
